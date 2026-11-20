@@ -2,6 +2,10 @@
 
 B2B acil tedarik pazaryeri: işletmeler (otel, restoran, kafe…) acil ihtiyacını yazar, yakındaki tedarikçiler canlı teklif verir, alıcı en iyi teklifi seçer, sipariş teslimata kadar takip edilir.
 
+🌐 **Canlı uygulama:** https://hknkaradogan-cpu.github.io/Acilcep-/
+🗄️ **Supabase projesi:** `acilcep` (Frankfurt) – veritabanı, güvenlik kuralları, canlı güncelleme ve fotoğraf deposu kurulu.
+🔄 **Güncelleme yayınlamak:** `scripts/deploy-gh-pages.sh`
+
 **Teknoloji:** React + Vite + TypeScript + Tailwind CSS · Supabase (Auth, PostgreSQL, Realtime, Storage) · PWA · Cloudflare Pages. Tamamı ücretsiz planlarla çalışır.
 
 > 🇬🇧 English technical notes are further down: [Developer guide](#developer-guide-english).

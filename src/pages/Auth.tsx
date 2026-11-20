@@ -54,7 +54,7 @@ export default function Auth({ mode }: { mode: Mode }) {
           email: email.trim(),
           password,
           options: {
-            emailRedirectTo: window.location.origin + '/',
+            emailRedirectTo: window.location.origin + import.meta.env.BASE_URL,
             // Only "buyer" or "supplier" are accepted by the database. Admin can never be chosen here.
             data: { role, full_name: fullName.trim(), company_name: company.trim(), language: lang, demo: demo ? 'true' : 'false' },
           },
@@ -64,7 +64,7 @@ export default function Auth({ mode }: { mode: Mode }) {
         else setInfo(t('checkEmail'));
       } else {
         const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), {
-          redirectTo: window.location.origin + '/reset-password',
+          redirectTo: window.location.origin + import.meta.env.BASE_URL + 'reset-password',
         });
         if (error) throw error;
         setInfo(t('resetSent'));

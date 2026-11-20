@@ -3,7 +3,11 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
+// BASE_PATH: '/' for Cloudflare Pages / custom domain, '/Acilcep-/' for GitHub Pages.
+const base = process.env.BASE_PATH || '/';
+
 export default defineConfig({
+  base,
   plugins: [
     react(),
     tailwindcss(),
@@ -18,18 +22,18 @@ export default defineConfig({
         background_color: '#ffffff',
         display: 'standalone',
         orientation: 'portrait',
-        start_url: '/',
-        scope: '/',
+        start_url: base,
+        scope: base,
         lang: 'en',
         categories: ['business', 'shopping', 'productivity'],
         icons: [
-          { src: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
-          { src: '/icons/icon-512.png', sizes: '512x512', type: 'image/png' },
-          { src: '/icons/icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+          { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png' },
+          { src: 'icons/icon-512.png', sizes: '512x512', type: 'image/png' },
+          { src: 'icons/icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
         ],
       },
       workbox: {
-        navigateFallback: '/index.html',
+        navigateFallback: base + 'index.html',
         globPatterns: ['**/*.{js,css,html,svg,png,webmanifest}'],
         // Never cache Supabase API / auth / realtime responses.
         runtimeCaching: [],
